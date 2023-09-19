@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 
-static int	whitespace(char *str, int *pos)
+static int	whitespace(const char *str, int *pos)
 {
 	int	i;
 	int	sign;
@@ -36,7 +36,7 @@ static int	whitespace(char *str, int *pos)
 	return (sign);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	sign;

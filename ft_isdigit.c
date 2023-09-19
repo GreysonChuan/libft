@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gchuan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 20:33:15 by gchuan            #+#    #+#             */
-/*   Updated: 2023/09/06 20:33:16 by gchuan           ###   ########.fr       */
+/*   Created: 2023/09/05 19:47:40 by gchuan            #+#    #+#             */
+/*   Updated: 2023/09/05 19:47:41 by gchuan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-char	*ft_strrchr(const char *str, int c)
+int	ft_isdigit(int c)
 {
-	char	*res;
-
-	res = NULL;
-	while (*str++ != '\0')
-	{
-		if (*str == c)
-			res = (char *)str;
-	}
-	return (res);
+	return (c >= '0' && c <= '9');
 }

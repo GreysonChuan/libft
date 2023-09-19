@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gchuan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/07 19:10:55 by gchuan            #+#    #+#             */
-/*   Updated: 2023/09/07 19:10:55 by gchuan           ###   ########.fr       */
+/*   Created: 2023/09/07 19:26:12 by gchuan            #+#    #+#             */
+/*   Updated: 2023/09/07 19:26:13 by gchuan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+void	*ft_calloc(size_t nitems, size_t size)
 {
-	int	i;
-	int	j;
+	void	*ptr;
 
-	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return ((char *)str);
-	while (str[i] != '\0' && len-- > 0)
+	if (nitems == 0 || size == 0)
 	{
-		while (str[i + j] == to_find[j] && str[i + j] != '\0')
-		{
-			if (to_find[j + 1] == '\0')
-				return ((char *)str + i);
-			j++;
-		}
-		i++;
-		j = 0;
+		nitems = 1;
+		size = 0;
 	}
-	return (NULL);
+	ptr = malloc(nitems * size);
+	if (ptr != NULL)
+	{
+		ft_bzero(ptr, nitems * size);
+	}
+	return (ptr);
 }

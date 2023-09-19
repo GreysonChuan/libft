@@ -1,42 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gchuan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/07 21:12:28 by gchuan            #+#    #+#             */
-/*   Updated: 2023/09/07 21:12:29 by gchuan           ###   ########.fr       */
+/*   Created: 2023/09/13 20:34:57 by gchuan            #+#    #+#             */
+/*   Updated: 2023/09/13 20:34:58 by gchuan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int		i;
-	int		j;
-	char	*ptr;
-	int		to_trim;
-
-	i = 0;
-	ptr = (char *)malloc(50 * sizeof(char));
-	if (!ptr)
+	if (!lst)
 		return (NULL);
-	while (s1[i] != '\0')
-	{
-		to_trim = 0;
-		j = 0;
-		while (set[j] != '\0')
-		{
-			if (set[j] == s1[i])
-				to_trim = 1;
-			j++;
-		}
-		if (!to_trim)
-			ptr[ft_strlen(ptr)] = s1[i];
-		i++;
-	}
-	return (ptr);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }
